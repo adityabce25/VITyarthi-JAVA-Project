@@ -278,34 +278,316 @@ A future version can use a relational database such as **SQLite or MySQL** for p
 
 ---
 
-## ▶️ How to Run
+## ⚙️ Setup and Installation
 
-### Prerequisites
+This section provides complete instructions for setting up and running the **Campus Event Manager** from a fresh environment. No prior knowledge of the project is required.
 
-Install the following:
+### 1. System Requirements
 
-* Java Development Kit (JDK)
-* A Java-compatible IDE such as IntelliJ IDEA, Eclipse, VS Code, or NetBeans.
+Before running the project, make sure the following software is installed:
 
-### Steps
+* **Java Development Kit (JDK)**
+* A terminal/command prompt
+* A Java-compatible IDE (optional)
 
-1. Clone or download this repository.
-2. Open the project in a Java IDE.
-3. Open the `src` folder.
-4. Compile the Java files.
-5. Run `Main.java`.
-6. Use the displayed menu to interact with the application.
+The project can be executed using the Java command line without requiring any additional framework.
 
-### Command Line
+### 2. Install Java
 
-From the `src` directory:
+Install a recent version of the **Java Development Kit (JDK)** on your system.
+
+After installation, verify that Java is correctly configured.
+
+Open Terminal / Command Prompt and run:
+
+```bash
+java -version
+```
+
+Then verify that the Java compiler is available:
+
+```bash
+javac -version
+```
+
+Both commands should display the installed Java version.
+
+If either command is not recognized, Java's installation directory needs to be added to the system's `PATH` environment variable.
+
+---
+
+### 3. Get the Project
+
+Clone this GitHub repository:
+
+```bash
+git clone <YOUR-GITHUB-REPOSITORY-URL>
+```
+
+Move into the project directory:
+
+```bash
+cd CampusEventManager
+```
+
+Alternatively, the repository can be downloaded as a ZIP file and extracted manually.
+
+---
+
+### 4. Project Structure
+
+After opening the project, the structure should look similar to:
+
+```text
+CampusEventManager/
+│
+├── src/
+│   ├── Main.java
+│   ├── Event.java
+│   ├── Registration.java
+│   └── EventService.java
+│
+├── README.md
+├── statement.md
+└── report.md
+```
+
+### Purpose of the Main Files
+
+| File                | Purpose                                                 |
+| ------------------- | ------------------------------------------------------- |
+| `Main.java`         | Starts the application and handles the console menu     |
+| `Event.java`        | Represents event information                            |
+| `Registration.java` | Represents student registration information             |
+| `EventService.java` | Contains the main event and registration business logic |
+| `README.md`         | Project documentation                                   |
+| `statement.md`      | Detailed project statement                              |
+| `report.md`         | Complete project report                                 |
+
+---
+
+### 5. Dependencies
+
+**No external dependencies are required.**
+
+The project uses Java's standard functionality, including:
+
+* Core Java
+* Object-Oriented Programming
+* `ArrayList`
+* Console input/output
+
+There is no requirement to install Maven, Gradle, third-party libraries, or external packages.
+
+---
+
+### 6. Configuration
+
+**No additional configuration is required.**
+
+The current version does not require:
+
+* Database configuration
+* API keys
+* Environment variables
+* External services
+* Configuration files
+* Internet connection during execution
+
+The application stores event and registration records in memory using Java `ArrayList` collections.
+
+> **Important:** Because the current version uses in-memory storage, records are available only while the application is running. Data is not permanently saved after the program is closed.
+
+---
+
+### 7. Compile the Project
+
+Open a terminal inside the project directory.
+
+Navigate to the `src` folder:
+
+```bash
+cd src
+```
+
+Compile all Java source files:
 
 ```bash
 javac *.java
+```
+
+If the compilation is successful, Java `.class` files will be generated for the source files.
+
+---
+
+### 8. Run the Application
+
+After successful compilation, run:
+
+```bash
 java Main
 ```
 
+The application will start and display the main menu in the terminal.
+
+The user can then select the required operation from the available menu options.
+
 ---
+
+## 🖥️ Using the Application
+
+After starting the program, follow the menu displayed on the screen.
+
+The main operations include:
+
+### Add Event
+
+Enter the requested event information, such as:
+
+* Event ID
+* Event title
+* Event date
+* Event venue
+
+The system validates the entered information and stores the event.
+
+### View Events
+
+Select the event-viewing option to display the events currently stored in the application.
+
+### Register Student
+
+Enter:
+
+* Student name
+* Event ID
+
+The system checks whether the event exists and whether it is active before creating the registration.
+
+### Cancel Event
+
+Enter the event ID of the event that needs to be cancelled.
+
+The system updates the event status and prevents further registration for the cancelled event.
+
+### Exit
+
+Select the exit option to terminate the application.
+
+---
+
+## 🔍 Example Execution
+
+A typical execution flow is:
+
+```text
+Start Application
+       ↓
+Display Main Menu
+       ↓
+Select "Add Event"
+       ↓
+Enter Event Details
+       ↓
+Validate Input
+       ↓
+Event Created
+       ↓
+Return to Main Menu
+       ↓
+Select "Register Student"
+       ↓
+Enter Student Details
+       ↓
+Validate Event
+       ↓
+Registration Confirmed
+       ↓
+Return to Main Menu
+       ↓
+Exit
+```
+
+---
+
+## 🛠️ Running Through an IDE
+
+The project can also be run using a Java IDE such as IntelliJ IDEA, Eclipse, NetBeans, or VS Code.
+
+### General IDE Steps
+
+1. Open the project folder in the IDE.
+2. Make sure the IDE detects a valid JDK.
+3. Open the `src` folder.
+4. Locate `Main.java`.
+5. Compile/build the project.
+6. Run the `main()` method in `Main.java`.
+7. Use the console to interact with the application.
+
+No additional framework or dependency configuration is required.
+
+---
+
+## ❗ Troubleshooting
+
+### `java: command not found`
+
+Java is either not installed or its executable is not available through the system `PATH`.
+
+Verify the installation using:
+
+```bash
+java -version
+```
+
+### `javac: command not found`
+
+The Java Runtime Environment may be installed without the complete JDK, or the JDK path may not be configured correctly.
+
+Install/configure a JDK and verify:
+
+```bash
+javac -version
+```
+
+### `Could not find or load main class Main`
+
+Make sure that:
+
+1. You are inside the `src` directory.
+2. The project has been compiled successfully.
+3. `Main.class` exists.
+4. You are running:
+
+```bash
+java Main
+```
+
+### Compilation Errors
+
+Make sure all Java files are present inside the `src` directory:
+
+```text
+Main.java
+Event.java
+Registration.java
+EventService.java
+```
+
+Then compile them together:
+
+```bash
+javac *.java
+```
+
+---
+
+## 📌 Important Note About Data
+
+The current version uses in-memory `ArrayList` storage. Therefore, events and registrations are not persisted after the application is closed.
+
+For a future version, persistent storage can be implemented using a database such as SQLite or MySQL.
+
 
 ## 📚 Java Concepts Demonstrated
 
